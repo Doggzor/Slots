@@ -24,7 +24,8 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+    slots(gfx)
 {
 }
 
@@ -39,8 +40,28 @@ void Game::Go()
 void Game::UpdateModel()
 {
     const float dt = ft.Mark();
+    timer += dt;
+    if (wnd.kbd.KeyIsPressed(VK_RETURN) && !isRollInhibited && !isRolling)
+    {
+        isRolling = true;
+        timer = 0.0f;
+    }
+    isRollInhibited = wnd.kbd.KeyIsPressed(VK_RETURN);
+
+    if (timer < rolltime * 0.5f && isRolling)
+        slots.Roll0();
+    if (timer < rolltime * 0.75f && isRolling)
+        slots.Roll1();
+    if (timer < rolltime && isRolling)
+        slots.Roll2();
+    if (timer >= rolltime)
+    {
+        timer = 0.0f;
+        isRolling = false;
+    }
 }
 
 void Game::ComposeFrame()
 {
+    slots.Draw();
 }

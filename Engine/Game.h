@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Numbers.h"
 #include "FrameTimer.h"
+#include "Slots.h"
 
 class Game
 {
@@ -45,5 +46,10 @@ private:
 	/********************************/
 	/*  User Variables              */
     FrameTimer ft;
+    Slots slots;
+    bool isRollInhibited = false;
+    bool isRolling = false;
+    float timer = 0.0f;
+    static constexpr float rolltime = 3.0f;
 	/********************************/
 };
