@@ -336,6 +336,14 @@ void Graphics::DrawRect(int x0, int y0, int x1, int y1, Color c)
 	}
 }
 
+void Graphics::DrawRectEmpty(int x, int y, int width, int height, int thickness, Color c)
+{
+	DrawRect(x, y, x + width, y + thickness, c);
+	DrawRect(x, y + height - thickness, x + width, y + height, c);
+	DrawRect(x, y + thickness, x + thickness, y + height - thickness, c);
+	DrawRect(x + width - thickness, y + thickness, x + width, y + height - thickness, c);
+}
+
 void Graphics::DrawCircle(int x, int y, int r, Color c)
 {
 	const int r_sq = r * r;
