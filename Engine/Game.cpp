@@ -41,9 +41,10 @@ void Game::UpdateModel()
 {
     const float dt = ft.Mark();
     timer += dt;
-    if (wnd.kbd.KeyIsPressed(VK_RETURN) && !isRollInhibited && !isRolling)
+    if (wnd.kbd.KeyIsPressed(VK_RETURN) && !isRollInhibited && !isRolling && slots.credits > 0)
     {
         isRolling = true;
+        slots.credits -= 1;
         timer = 0.0f;
     }
     isRollInhibited = wnd.kbd.KeyIsPressed(VK_RETURN);
@@ -54,9 +55,11 @@ void Game::UpdateModel()
         slots.Roll1();
     if (timer < rolltime && isRolling)
         slots.Roll2();
-    if (timer >= rolltime)
+    if (timer >= rolltime && isRolling)
     {
         timer = 0.0f;
+        slots.Update();
+        slots.UpdateCredit();
         isRolling = false;
     }
 }
@@ -64,4 +67,5 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
     slots.Draw();
+    slots.DrawUI();
 }
