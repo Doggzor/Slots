@@ -41,15 +41,15 @@ void Game::UpdateModel()
 {
     const float dt = ft.Mark();
     timer += dt;
-    if (wnd.kbd.KeyIsPressed(VK_RETURN) && !isRollInhibited && !isRolling && slots.credits > 0)
+    if (wnd.kbd.KeyIsPressed(VK_SPACE) && !isRollInhibited && !isRolling && slots.credits > 0)
     {
         isRolling = true;
-        slots.credits -= 1;
+        slots.credits -= slots.rollCost;
         timer = 0.0f;
     }
-    isRollInhibited = wnd.kbd.KeyIsPressed(VK_RETURN);
+    isRollInhibited = wnd.kbd.KeyIsPressed(VK_SPACE);
 
-    slots.UpdateCreditsDisplayed();
+    slots.UpdateFrame();
 
     if (timer < rolltime * 0.5f && isRolling)
         slots.Roll0();
@@ -64,8 +64,13 @@ void Game::UpdateModel()
         slots.UpdateCredit();
         isRolling = false;
     }
-    if (wnd.kbd.KeyIsPressed(VK_UP))
-        slots.credits += 100;
+
+    if (wnd.kbd.KeyIsPressed(VK_UP) && slots.rollCost < 10 && !isUpInhibited)
+        ++slots.rollCost;
+    isUpInhibited = wnd.kbd.KeyIsPressed(VK_UP);
+    if (wnd.kbd.KeyIsPressed(VK_DOWN) && slots.rollCost > 1 && !isDownInhibited)
+        --slots.rollCost;
+    isDownInhibited = wnd.kbd.KeyIsPressed(VK_DOWN);
 }
 
 void Game::ComposeFrame()

@@ -48,6 +48,8 @@ private:
     FrameTimer ft;
     Slots slots;
     bool isRollInhibited = false;
+    bool isUpInhibited = false;
+    bool isDownInhibited = false;
     bool isRolling = false;
     float timer = 0.0f;
     static constexpr float rolltime = 3.0f;

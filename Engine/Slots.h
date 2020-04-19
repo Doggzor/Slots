@@ -13,11 +13,14 @@ public:
 	void DrawUI();
 	void Update();
 	void UpdateCredit();
-	void UpdateCreditsDisplayed();
+	void UpdateFrame();
 	int credits = 100;
 	int creditsDisplayed = 100;
+	int rollCost = 1;
 private:
 	Color cc = Colors::White;
+	int rgb = 255;
+	bool plus_rgb = false;
 	static constexpr int width = 450;
 	static constexpr int chance0 = 34;
 	static constexpr int chance1 = 26;
@@ -47,6 +50,9 @@ private:
 	void Draw4s(int x, int y);
 	void DrawEQsign(int x, int y);
 	void DrawCredits(int x, int y);
+	void DrawBet(int x, int y);
+	void DrawUpDown(int x, int y);
+	void DrawSpace(int x, int y, Color c);
 	void Draw0(int x, int y);
 	void Draw1(int x, int y);
 	void Draw2(int x, int y);
