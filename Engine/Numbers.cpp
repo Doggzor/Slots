@@ -5,81 +5,111 @@ void Numbers::Draw(int x, int y, int num, Graphics& gfx) const
 {
 	int offset0 = 0;
 	int offset1 = 0;
+	int offset2 = 0;
 	int number = num;
+	if (num < 0)
+		number = 0;
 	int numberO = 0;
 	int numberT = 0;
 	int numberH = 0;
-	const int numberTH = 1000;
-	if (num >= 10)
+	int numberTH = 0;
+	const int numberTTH = 10000;
+	while (numberTTH <= number) number -= 10000;
+	if (number >= 10)
 	{
 		offset0 = 15;
-		if (num >= 100)
+		if (number >= 100)
 		{
 			offset1 = 15;
+			if (number >= 1000)
+			{
+				offset2 = 15;
+			}
 		}
 	}
-	while (numberTH <= number) number -= 1000;
+	for (int nTH = 1000; nTH <= number; ++numberTH) number -= 1000;
 	for (int nH = 100; nH <= number; ++numberH) number -= 100;
 	for (int nT = 10; nT <= number; ++numberT) number -= 10;
 	for (int nO = 0; nO < number; ++numberO) --number;
 
 	if (numberO <= 0)
-		drawnum0(x + offset0 + offset1, y, gfx);
+		drawnum0(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 1)
-		drawnum1(x + offset0 + offset1, y, gfx);
+		drawnum1(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 2)
-		drawnum2(x + offset0 + offset1, y, gfx);
+		drawnum2(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 3)
-		drawnum3(x + offset0 + offset1, y, gfx);
+		drawnum3(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 4)
-		drawnum4(x + offset0 + offset1, y, gfx);
+		drawnum4(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 5)
-		drawnum5(x + offset0 + offset1, y, gfx);
+		drawnum5(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 6)
-		drawnum6(x + offset0 + offset1, y, gfx);
+		drawnum6(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 7)
-		drawnum7(x + offset0 + offset1, y, gfx);
+		drawnum7(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 8)
-		drawnum8(x + offset0 + offset1, y, gfx);
+		drawnum8(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 9)
-		drawnum9(x + offset0 + offset1, y, gfx);
+		drawnum9(x + offset0 + offset1 + offset2, y, gfx);
+
 	if (numberT == 0 && numberH > 0)
-		drawnum0(x + offset1, y, gfx);
+		drawnum0(x + offset1 + offset2, y, gfx);
 	else if (numberT == 1)
-		drawnum1(x + offset1, y, gfx);
+		drawnum1(x + offset1 + offset2, y, gfx);
 	else if (numberT == 2)
-		drawnum2(x + offset1, y, gfx);
+		drawnum2(x + offset1 + offset2, y, gfx);
 	else if (numberT == 3)
-		drawnum3(x + offset1, y, gfx);
+		drawnum3(x + offset1 + offset2, y, gfx);
 	else if (numberT == 4)
-		drawnum4(x + offset1, y, gfx);
+		drawnum4(x + offset1 + offset2, y, gfx);
 	else if (numberT == 5)
-		drawnum5(x + offset1, y, gfx);
+		drawnum5(x + offset1 + offset2, y, gfx);
 	else if (numberT == 6)
-		drawnum6(x + offset1, y, gfx);
+		drawnum6(x + offset1 + offset2, y, gfx);
 	else if (numberT == 7)
-		drawnum7(x + offset1, y, gfx);
+		drawnum7(x + offset1 + offset2, y, gfx);
 	else if (numberT == 8)
-		drawnum8(x + offset1, y, gfx);
+		drawnum8(x + offset1 + offset2, y, gfx);
 	else if (numberT == 9)
-		drawnum9(x + offset1, y, gfx);
+		drawnum9(x + offset1 + offset2, y, gfx);
+
 	if (numberH == 1)
-		drawnum1(x, y, gfx);
+		drawnum1(x + offset2, y, gfx);
 	else if (numberH == 2)
-		drawnum2(x, y, gfx);
+		drawnum2(x + offset2, y, gfx);
 	else if (numberH == 3)
-		drawnum3(x, y, gfx);
+		drawnum3(x + offset2, y, gfx);
 	else if (numberH == 4)
-		drawnum4(x, y, gfx);
+		drawnum4(x + offset2, y, gfx);
 	else if (numberH == 5)
-		drawnum5(x, y, gfx);
+		drawnum5(x + offset2, y, gfx);
 	else if (numberH == 6)
-		drawnum6(x, y, gfx);
+		drawnum6(x + offset2, y, gfx);
 	else if (numberH == 7)
-		drawnum7(x, y, gfx);
+		drawnum7(x + offset2, y, gfx);
 	else if (numberH == 8)
-		drawnum8(x, y, gfx);
+		drawnum8(x + offset2, y, gfx);
 	else if (numberH == 9)
+		drawnum9(x + offset2, y, gfx);
+
+	if (numberTH == 1)
+		drawnum1(x, y, gfx);
+	else if (numberTH == 2)
+		drawnum2(x, y, gfx);
+	else if (numberTH == 3)
+		drawnum3(x, y, gfx);
+	else if (numberTH == 4)
+		drawnum4(x, y, gfx);
+	else if (numberTH == 5)
+		drawnum5(x, y, gfx);
+	else if (numberTH == 6)
+		drawnum6(x, y, gfx);
+	else if (numberTH == 7)
+		drawnum7(x, y, gfx);
+	else if (numberTH == 8)
+		drawnum8(x, y, gfx);
+	else if (numberTH == 9)
 		drawnum9(x, y, gfx);
 }
 
