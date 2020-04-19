@@ -13,8 +13,11 @@ public:
 	void DrawUI();
 	void Update();
 	void UpdateCredit();
+	void UpdateCreditsDisplayed();
 	int credits = 100;
+	int creditsDisplayed = 100;
 private:
+	Color cc = Colors::White;
 	static constexpr int width = 450;
 	static constexpr int chance0 = 34;
 	static constexpr int chance1 = 26;

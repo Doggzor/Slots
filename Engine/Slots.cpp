@@ -75,7 +75,7 @@ void Slots::DrawUI()
 	const int cx = 580;
 	const int cy = 60;
 	DrawCredits(cx, cy);
-	creditcount.Draw(cx + 100, cy - 5, credits, gfx);
+	creditcount.Draw(cx + 100, cy - 5, creditsDisplayed, cc, gfx);
 
 	const int x = 10;
 	const int y = 10;
@@ -87,57 +87,57 @@ void Slots::DrawUI()
 	Draw0s(x, y);
 	Draw0s(x + width, y);
 	DrawEQsign(x + width * 2, y + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + 2, win00x, gfx);
+	creditcount.Draw(x + width * 2 + EQwidth, y + 2, win00x, Colors::White, gfx);
 	//triple cherry
 	Draw0s(x, y + height);
 	Draw0s(x + width, y + height);
 	Draw0s(x + width * 2, y + height);
 	DrawEQsign(x + width * 3, y + height + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height, win000, gfx);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height, win000, Colors::White, gfx);
 	//double lemon
 	Draw1s(x, y + height * 2);
 	Draw1s(x + width, y + height * 2);
 	DrawEQsign(x + width * 2, y + height * 2 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 2 + 2, win11x, gfx);
+	creditcount.Draw(x + width * 2 + EQwidth, y + height * 2 + 2, win11x, Colors::White, gfx);
 	//triple lemon
 	Draw1s(x, y + height * 3);
 	Draw1s(x + width, y + height * 3);
 	Draw1s(x + width * 2, y + height * 3);
 	DrawEQsign(x + width * 3, y + height * 3 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 3, win111, gfx);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 3, win111, Colors::White, gfx);
 	//double watermelon
 	Draw2s(x, y + height * 4);
 	Draw2s(x + width, y + height * 4);
 	DrawEQsign(x + width * 2, y + height * 4 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 4 + 2, win22x, gfx);
+	creditcount.Draw(x + width * 2 + EQwidth, y + height * 4 + 2, win22x, Colors::White, gfx);
 	//triple watermelon
 	Draw2s(x, y + height * 5);
 	Draw2s(x + width, y + height * 5);
 	Draw2s(x + width * 2, y + height * 5);
 	DrawEQsign(x + width * 3, y + height * 5 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 5, win222, gfx);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 5, win222, Colors::White, gfx);
 	//double pineapple
 	Draw3s(x, y + height * 6);
 	Draw3s(x + width, y + height * 6);
 	DrawEQsign(x + width * 2, y + height * 6 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 6 + 2, win33x, gfx);
+	creditcount.Draw(x + width * 2 + EQwidth, y + height * 6 + 2, win33x, Colors::White, gfx);
 	//triple pineapple
 	Draw3s(x, y + height * 7);
 	Draw3s(x + width, y + height * 7);
 	Draw3s(x + width * 2, y + height * 7);
 	DrawEQsign(x + width * 3, y + height * 7 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 7, win333, gfx);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 7, win333, Colors::White, gfx);
 	//double diamond
 	Draw4s(x, y + height * 8);
 	Draw4s(x + width, y + height * 8);
 	DrawEQsign(x + width * 2, y + height * 8 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 8 + 2, win44x, gfx);
+	creditcount.Draw(x + width * 2 + EQwidth, y + height * 8 + 2, win44x, Colors::White, gfx);
 	//triple diamond
 	Draw4s(x, y + height * 9);
 	Draw4s(x + width, y + height * 9);
 	Draw4s(x + width * 2, y + height * 9);
 	DrawEQsign(x + width * 3, y + height * 9 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 9, win444, gfx);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 9, win444, Colors::White, gfx);
 
 }
 
@@ -219,6 +219,19 @@ void Slots::UpdateCredit()
 		else
 			credits += win44x;
 	}
+}
+
+void Slots::UpdateCreditsDisplayed()
+{
+	if (creditsDisplayed > credits)
+		creditsDisplayed = credits;
+	if (creditsDisplayed < credits)
+	{
+		cc = Colors::Green;
+		++creditsDisplayed;
+	}
+	else
+		cc = Colors::White;
 }
 
 void Slots::Draw0s(int x, int y)

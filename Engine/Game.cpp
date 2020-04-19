@@ -49,6 +49,8 @@ void Game::UpdateModel()
     }
     isRollInhibited = wnd.kbd.KeyIsPressed(VK_RETURN);
 
+    slots.UpdateCreditsDisplayed();
+
     if (timer < rolltime * 0.5f && isRolling)
         slots.Roll0();
     if (timer < rolltime * 0.75f && isRolling)
@@ -62,6 +64,8 @@ void Game::UpdateModel()
         slots.UpdateCredit();
         isRolling = false;
     }
+    if (wnd.kbd.KeyIsPressed(VK_UP))
+        slots.credits += 100;
 }
 
 void Game::ComposeFrame()
