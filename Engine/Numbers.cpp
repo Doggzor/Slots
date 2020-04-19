@@ -32,7 +32,7 @@ void Numbers::Draw(int x, int y, int num, Graphics& gfx) const
 	for (int nT = 10; nT <= number; ++numberT) number -= 10;
 	for (int nO = 0; nO < number; ++numberO) --number;
 
-	if (numberO <= 0)
+	if (numberO == 0)
 		drawnum0(x + offset0 + offset1 + offset2, y, gfx);
 	else if (numberO == 1)
 		drawnum1(x + offset0 + offset1 + offset2, y, gfx);
@@ -53,7 +53,7 @@ void Numbers::Draw(int x, int y, int num, Graphics& gfx) const
 	else if (numberO == 9)
 		drawnum9(x + offset0 + offset1 + offset2, y, gfx);
 
-	if (numberT == 0 && numberH > 0)
+	if (numberT == 0 && (numberH > 0 || numberTH > 0))
 		drawnum0(x + offset1 + offset2, y, gfx);
 	else if (numberT == 1)
 		drawnum1(x + offset1 + offset2, y, gfx);
@@ -74,7 +74,9 @@ void Numbers::Draw(int x, int y, int num, Graphics& gfx) const
 	else if (numberT == 9)
 		drawnum9(x + offset1 + offset2, y, gfx);
 
-	if (numberH == 1)
+	if (numberH == 0 && numberTH > 0)
+		drawnum0(x + offset2, y, gfx);
+	else if (numberH == 1)
 		drawnum1(x + offset2, y, gfx);
 	else if (numberH == 2)
 		drawnum2(x + offset2, y, gfx);
