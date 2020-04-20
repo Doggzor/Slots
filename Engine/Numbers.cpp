@@ -4,6 +4,7 @@
 void Numbers::Draw(int x, int y, int num, Color c, Graphics& gfx) const
 {
 	int offsetneg = 0;
+	int offsetcomma = 0;
 	int offset0 = 0;
 	int offset1 = 0;
 	int offset2 = 0;
@@ -44,6 +45,11 @@ void Numbers::Draw(int x, int y, int num, Color c, Graphics& gfx) const
 			}
 		}
 	}
+	if (number >= 1000)
+	{
+		draw_comma(offsetneg + x + offset2 + offset3 + offset4, y + 22, c, gfx);
+		offsetcomma = 6;
+	}
 	for (int nHTH = 100000; nHTH <= number; ++numberHTH) number -= 100000;
 	for (int nTTH = 10000; nTTH <= number; ++numberTTH) number -= 10000;
 	for (int nTH = 1000; nTH <= number; ++numberTH) number -= 1000;
@@ -52,67 +58,67 @@ void Numbers::Draw(int x, int y, int num, Color c, Graphics& gfx) const
 	for (int nO = 0; nO < number; ++numberO) --number;
 
 	if (numberO == 0)
-		drawnum0(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum0(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 1)
-		drawnum1(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum1(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 2)
-		drawnum2(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum2(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 3)
-		drawnum3(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum3(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 4)
-		drawnum4(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum4(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 5)
-		drawnum5(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum5(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 6)
-		drawnum6(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum6(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 7)
-		drawnum7(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum7(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 8)
-		drawnum8(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum8(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 	else if (numberO == 9)
-		drawnum9(offsetneg + x + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum9(offsetneg + x + offsetcomma + offset0 + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 
 	if (numberT == 0 && (numberH > 0 || numberTH > 0 || numberTTH > 0 || numberHTH > 0))
-		drawnum0(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum0(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 1)
-		drawnum1(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum1(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 2)
-		drawnum2(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum2(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 3)
-		drawnum3(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum3(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 4)
-		drawnum4(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum4(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 5)
-		drawnum5(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum5(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 6)
-		drawnum6(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum6(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 7)
-		drawnum7(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum7(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 8)
-		drawnum8(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum8(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberT == 9)
-		drawnum9(offsetneg + x + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum9(offsetneg + x + offsetcomma + offset1 + offset2 + offset3 + offset4, y, c,  gfx);
 
 	if (numberH == 0 && (numberTH > 0 || numberTTH > 0 || numberHTH >0))
-		drawnum0(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum0(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 1)
-		drawnum1(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum1(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 2)
-		drawnum2(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum2(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 3)
-		drawnum3(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum3(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 4)
-		drawnum4(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum4(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 5)
-		drawnum5(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum5(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 6)
-		drawnum6(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum6(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 7)
-		drawnum7(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum7(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 8)
-		drawnum8(offsetneg + x + offset2 + offset3 + offset4, y, c, gfx);
+		drawnum8(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c, gfx);
 	else if (numberH == 9)
-		drawnum9(offsetneg + x + offset2 + offset3 + offset4, y, c,  gfx);
+		drawnum9(offsetneg + x + offsetcomma + offset2 + offset3 + offset4, y, c,  gfx);
 
 	if (numberTH == 0 && (numberTTH > 0 || numberHTH > 0))
 		drawnum0(offsetneg + x + offset3 + offset4, y, c, gfx);
@@ -1574,5 +1580,27 @@ void Numbers::draw_minus(int x, int y, Color c, Graphics& gfx) const
 	gfx.PutPixel(6 + x, 2 + y,   c);
 	gfx.PutPixel(7 + x, 2 + y,   c);
 
+}
+
+void Numbers::draw_comma(int x, int y, Color c, Graphics& gfx) const
+{
+	gfx.PutPixel(0 + x, 0 + y, c);
+	gfx.PutPixel(1 + x, 0 + y, c);
+	gfx.PutPixel(2 + x, 0 + y, c);
+	gfx.PutPixel(3 + x, 0 + y, c);
+	gfx.PutPixel(0 + x, 1 + y, c);
+	gfx.PutPixel(1 + x, 1 + y, c);
+	gfx.PutPixel(2 + x, 1 + y, c);
+	gfx.PutPixel(3 + x, 1 + y, c);
+	gfx.PutPixel(0 + x, 2 + y, c);
+	gfx.PutPixel(1 + x, 2 + y, c);
+	gfx.PutPixel(2 + x, 2 + y, c);
+	gfx.PutPixel(3 + x, 2 + y, c);
+	gfx.PutPixel(1 + x, 3 + y, c);
+	gfx.PutPixel(2 + x, 3 + y, c);
+	gfx.PutPixel(3 + x, 3 + y, c);
+	gfx.PutPixel(2 + x, 4 + y, c);
+	gfx.PutPixel(3 + x, 4 + y, c);
+	gfx.PutPixel(3 + x, 5 + y, c);
 }
 

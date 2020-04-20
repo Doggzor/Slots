@@ -17,5 +17,6 @@ private:
 	void drawnum8(int x, int y, Color c, Graphics& gfx) const;
 	void drawnum9(int x, int y, Color c, Graphics& gfx) const;
 	void draw_minus(int x, int y, Color c, Graphics& gfx) const;
+	void draw_comma(int x, int y, Color c, Graphics& gfx) const;
 };
 
