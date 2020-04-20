@@ -41,7 +41,7 @@ void Game::UpdateModel()
 {
     const float dt = ft.Mark();
     timer += dt;
-    if (wnd.kbd.KeyIsPressed(VK_SPACE) && !isRollInhibited && !isRolling && slots.credits > 0)
+    if (wnd.kbd.KeyIsPressed(VK_SPACE) && !isRollInhibited && !isRolling && slots.credits >= slots.rollCost)
     {
         isRolling = true;
         slots.credits -= slots.rollCost;

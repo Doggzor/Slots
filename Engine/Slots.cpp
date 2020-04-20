@@ -11,11 +11,11 @@ void Slots::Draw()
 	const int thck = 3;
 	const int dim = width / 3;
 	const int x = (gfx.ScreenWidth - width) - 100;
-	const int y = (gfx.ScreenHeight - dim) - 220;
+	const int y = (gfx.ScreenHeight - dim) - 250;
 	gfx.DrawRectEmpty(x, y, dim, dim, -thck, Colors::Gray);
 	gfx.DrawRectEmpty(x + dim + thck, y, dim, dim, -3, Colors::Gray);
 	gfx.DrawRectEmpty(x + (dim + thck) * 2, y, dim, dim, -3, Colors::Gray);
-	DrawSpace(x + dim, y + dim + 80, Colors::MakeRGB(rgb, rgb, rgb));
+	//DrawSpace(x + dim - 190, y + dim + 205, Colors::MakeRGB(rgb, rgb, rgb));
 
 	const int chance00 = chance0;
 	const int chance01 = chance00 + chance1;
@@ -82,7 +82,8 @@ void Slots::DrawUI()
 	const int by = 550;
 	DrawBet(bx, by);
 	creditcount.Draw(bx + 53, by, rollCost, Colors::White, gfx);
-	DrawUpDown(bx + 470, by + 20);
+	DrawSpace(bx + 170, by, Colors::MakeRGB(rgb, rgb, rgb));
+	DrawUpDown(bx + 440, by);
 
 
 	const int x = 10;
@@ -91,61 +92,50 @@ void Slots::DrawUI()
 	const int height = 38;
 	const int EQwidth = 18;
 
-	//double cherry
+	//Single cherry
 	Draw0s(x, y);
-	Draw0s(x + width, y);
-	DrawEQsign(x + width * 2, y + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + 2, win00x * rollCost, Colors::White, gfx);
-	//triple cherry
+	DrawEQsign(x + width, y + 11);
+	creditcount.Draw(x + width + EQwidth, y + 2, win0xx * rollCost, Colors::White, gfx);
+	//double cherry
 	Draw0s(x, y + height);
 	Draw0s(x + width, y + height);
-	Draw0s(x + width * 2, y + height);
-	DrawEQsign(x + width * 3, y + height + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height, win000 * rollCost, Colors::White, gfx);
+	DrawEQsign(x + width * 2, y + height + 11);
+	creditcount.Draw(x + width * 2 + EQwidth, y + height + 2, win00x * rollCost, Colors::White, gfx);
+	//triple cherry
+	Draw0s(x, y + height * 2);
+	Draw0s(x + width, y + height * 2);
+	Draw0s(x + width * 2, y + height * 2);
+	DrawEQsign(x + width * 3, y + height * 2 + 11);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 2, win000 * rollCost, Colors::White, gfx);
 	//double lemon
-	Draw1s(x, y + height * 2);
-	Draw1s(x + width, y + height * 2);
-	DrawEQsign(x + width * 2, y + height * 2 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 2 + 2, win11x * rollCost, Colors::White, gfx);
-	//triple lemon
 	Draw1s(x, y + height * 3);
 	Draw1s(x + width, y + height * 3);
-	Draw1s(x + width * 2, y + height * 3);
-	DrawEQsign(x + width * 3, y + height * 3 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 3, win111 * rollCost, Colors::White, gfx);
-	//double watermelon
-	Draw2s(x, y + height * 4);
-	Draw2s(x + width, y + height * 4);
-	DrawEQsign(x + width * 2, y + height * 4 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 4 + 2, win22x * rollCost, Colors::White, gfx);
+	DrawEQsign(x + width * 2, y + height * 3 + 11);
+	creditcount.Draw(x + width * 2 + EQwidth, y + height * 3 + 2, win11x * rollCost, Colors::White, gfx);
+	//triple lemon
+	Draw1s(x, y + height * 4);
+	Draw1s(x + width, y + height * 4);
+	Draw1s(x + width * 2, y + height * 4);
+	DrawEQsign(x + width * 3, y + height * 4 + 11);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 4, win111 * rollCost, Colors::White, gfx);
 	//triple watermelon
 	Draw2s(x, y + height * 5);
 	Draw2s(x + width, y + height * 5);
 	Draw2s(x + width * 2, y + height * 5);
 	DrawEQsign(x + width * 3, y + height * 5 + 11);
 	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 5, win222 * rollCost, Colors::White, gfx);
-	//double pineapple
+	//triple pineapple
 	Draw3s(x, y + height * 6);
 	Draw3s(x + width, y + height * 6);
-	DrawEQsign(x + width * 2, y + height * 6 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 6 + 2, win33x * rollCost, Colors::White, gfx);
-	//triple pineapple
-	Draw3s(x, y + height * 7);
-	Draw3s(x + width, y + height * 7);
-	Draw3s(x + width * 2, y + height * 7);
-	DrawEQsign(x + width * 3, y + height * 7 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 7, win333 * rollCost, Colors::White, gfx);
-	//double diamond
-	Draw4s(x, y + height * 8);
-	Draw4s(x + width, y + height * 8);
-	DrawEQsign(x + width * 2, y + height * 8 + 11);
-	creditcount.Draw(x + width * 2 + EQwidth, y + height * 8 + 2, win44x * rollCost, Colors::White, gfx);
+	Draw3s(x + width * 2, y + height * 6);
+	DrawEQsign(x + width * 3, y + height * 6 + 11);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 6, win333 * rollCost, Colors::White, gfx);
 	//triple diamond
-	Draw4s(x, y + height * 9);
-	Draw4s(x + width, y + height * 9);
-	Draw4s(x + width * 2, y + height * 9);
-	DrawEQsign(x + width * 3, y + height * 9 + 11);
-	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 9, win444 * rollCost, Colors::White, gfx);
+	Draw4s(x, y + height * 7);
+	Draw4s(x + width, y + height * 7);
+	Draw4s(x + width * 2, y + height * 7);
+	DrawEQsign(x + width * 3, y + height * 7 + 11);
+	creditcount.Draw(x + width * 3 + EQwidth, y + 2 + height * 7, win444 * rollCost, Colors::White, gfx);
 
 }
 
@@ -192,12 +182,17 @@ void Slots::Update()
 
 void Slots::UpdateCredit()
 {
-	if (slot1 == 1 && slot2 == 1)
+	if (slot1 == 1)
 	{
-		if (slot3 == 1)
-			credits += win000 * rollCost;
-		else
-			credits += win00x * rollCost;
+		if(slot2 == 1)
+		{
+			if (slot3 == 1)
+				credits += win000 * rollCost;
+			else
+				credits += win00x * rollCost;
+		}
+	else
+		credits += win0xx * rollCost;
 	}
 	if (slot1 == 2 && slot2 == 2)
 	{
@@ -206,26 +201,17 @@ void Slots::UpdateCredit()
 		else
 			credits += win11x * rollCost;
 	}
-	if (slot1 == 3 && slot2 == 3)
+	if (slot1 == 3 && slot2 == 3 && slot3 == 3)
 	{
-		if (slot3 == 3)
 			credits += win222 * rollCost;
-		else
-			credits += win22x * rollCost;
 	}
-	if (slot1 == 4 && slot2 == 4)
+	if (slot1 == 4 && slot2 == 4 && slot3 == 4)
 	{
-		if (slot3 == 4)
 			credits += win333 * rollCost;
-		else
-			credits += win33x * rollCost;
 	}
-	if (slot1 == 5 && slot2 == 5)
+	if (slot1 == 5 && slot2 == 5 && slot3 == 5)
 	{
-		if (slot3 == 5)
 			credits += win444 * rollCost;
-		else
-			credits += win44x * rollCost;
 	}
 }
 
@@ -243,12 +229,12 @@ void Slots::UpdateFrame()
 
 	if (rgb >= 250)
 		plus_rgb = false;
-	if (rgb <= 100)
+	if (rgb <= 50)
 		plus_rgb = true;
 	if (plus_rgb)
-		rgb += 2;
+		rgb += 3;
 	else
-		rgb -= 2;
+		rgb -= 3;
 }
 
 void Slots::Draw0s(int x, int y)
