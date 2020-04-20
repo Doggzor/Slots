@@ -276,6 +276,10 @@ void Slots::UpdateCredit()
 		sc1 = Colors::White;
 		sc2 = Colors::White;
 	}
+	if (slot1 == 6 && slot2 == 6 && slot3 == 6)
+	{
+		credits += win555 * rollCost;
+	}
 }
 
 void Slots::UpdateFrame()
