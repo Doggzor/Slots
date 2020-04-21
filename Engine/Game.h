@@ -26,6 +26,7 @@
 #include "Numbers.h"
 #include "FrameTimer.h"
 #include "Slots.h"
+#include "Sound.h"
 
 class Game
 {
@@ -47,11 +48,20 @@ private:
 	/*  User Variables              */
     FrameTimer ft;
     Slots slots;
+    Sound click;
+    Sound roll;
+    Sound payout;
+    Sound bigpayout;
+    Sound rollstop;
+    float vol = 1.0f;
+    bool blipPlayed0 = false;
+    bool blipPlayed1 = false;
     bool isRollInhibited = false;
     bool isUpInhibited = false;
     bool isDownInhibited = false;
-    bool isRolling = false;
     float timer = 0.0f;
+    float betadjTimer0 = 0.0f;
+    float betadjTimer1 = 0.5f;
     static constexpr float rolltime = 3.0f;
 	/********************************/
 };

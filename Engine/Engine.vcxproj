@@ -236,6 +236,13 @@
   <ItemGroup>
     <Image Include="Chili.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="bigpayout.wav" />
+    <Media Include="rollstop.wav" />
+    <Media Include="click.wav" />
+    <Media Include="roll.wav" />
+    <Media Include="payout.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

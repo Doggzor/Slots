@@ -17,8 +17,12 @@ public:
 	int credits = 1000;
 	int creditsDisplayed = 1000;
 	int rollCost = 1;
+	bool isRolling = false;
 private:
 	Color cc = Colors::White;
+	Color sc0 = Colors::Gray;
+	Color sc1 = Colors::Gray;
+	Color sc2 = Colors::Gray;
 	int rgb = 255;
 	bool plus_rgb = false;
 	static constexpr int width = 450;

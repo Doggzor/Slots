@@ -131,9 +131,9 @@ private:
 private:
 	// change these values to match the format of the wav files you are loading
 	// all wav files must have the same format!! (no mixing and matching)
-	static constexpr WORD nChannelsPerSound = 2u;
-	static constexpr DWORD nSamplesPerSec = 44100u;
-	static constexpr WORD nBitsPerSample = 16u;
+	static constexpr WORD nChannelsPerSound = 1u;
+	static constexpr DWORD nSamplesPerSec = 11025u;
+	static constexpr WORD nBitsPerSample = 8u;
 	// change this value to increase/decrease the maximum polyphony	
 	static constexpr size_t nChannels = 64u;
 };

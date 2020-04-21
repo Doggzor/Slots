@@ -12,9 +12,9 @@ void Slots::Draw()
 	const int dim = width / 3;
 	const int x = (gfx.ScreenWidth - width) - 100;
 	const int y = (gfx.ScreenHeight - dim) - 250;
-	gfx.DrawRectEmpty(x, y, dim, dim, -thck, Colors::Gray);
-	gfx.DrawRectEmpty(x + dim + thck, y, dim, dim, -3, Colors::Gray);
-	gfx.DrawRectEmpty(x + (dim + thck) * 2, y, dim, dim, -3, Colors::Gray);
+	gfx.DrawRectEmpty(x + (dim + thck) * 2, y, dim, dim, -3, sc2);
+	gfx.DrawRectEmpty(x + dim + thck, y, dim, dim, -3, sc1);
+	gfx.DrawRectEmpty(x, y, dim, dim, -thck, sc0);
 	//DrawSpace(x + dim - 190, y + dim + 205, Colors::MakeRGB(rgb, rgb, rgb));
 
 	const int chance00 = chance0;
@@ -210,37 +210,59 @@ void Slots::UpdateCredit()
 {
 	if (slot1 == 1)
 	{
-		if(slot2 == 1)
+		sc0 = Colors::Green;
+		if (slot2 == 1)
 		{
+			sc1 = Colors::Green;
 			if (slot3 == 1)
+			{
+				sc2 = Colors::Green;
 				credits += win000 * rollCost;
+			}
 			else
 				credits += win00x * rollCost;
 		}
-	else
-		credits += win0xx * rollCost;
+		else
+			credits += win0xx * rollCost;
 	}
 	if (slot1 == 2 && slot2 == 2)
 	{
+		sc0 = Colors::Green;
+		sc1 = Colors::Green;
 		if (slot3 == 2)
+		{
+			sc2 = Colors::Green;
 			credits += win111 * rollCost;
+		}
 		else
 			credits += win11x * rollCost;
 	}
 	if (slot1 == 3 && slot2 == 3 && slot3 == 3)
 	{
-			credits += win222 * rollCost;
+		sc0 = Colors::Green;
+		sc1 = Colors::Green;
+		sc2 = Colors::Green;
+		credits += win222 * rollCost;
 	}
 	if (slot1 == 4 && slot2 == 4 && slot3 == 4)
 	{
-			credits += win333 * rollCost;
+		sc0 = Colors::Green;
+		sc1 = Colors::Green;
+		sc2 = Colors::Green;
+		credits += win333 * rollCost;
 	}
 	if (slot1 == 5 && slot2 == 5 && slot3 == 5)
 	{
-			credits += win444 * rollCost;
+		sc0 = Colors::Green;
+		sc1 = Colors::Green;
+		sc2 = Colors::Green;
+		credits += win444 * rollCost;
 	}
 	if (slot1 == 6 && slot2 == 6 && slot3 == 6)
 	{
+		sc0 = Colors::Green;
+		sc1 = Colors::Green;
+		sc2 = Colors::Green;
 		credits += win555 * rollCost;
 	}
 }
@@ -252,10 +274,16 @@ void Slots::UpdateFrame()
 	if (creditsDisplayed < credits)
 	{
 		cc = Colors::Green;
-		++creditsDisplayed;
+		creditsDisplayed += 1 + (int)((float)rollCost / 4);
 	}
 	else
 		cc = Colors::White;
+	if(isRolling)
+	{
+		sc0 = Colors::Gray;
+		sc1 = Colors::Gray;
+		sc2 = Colors::Gray;
+	}
 
 	if (rgb >= 250)
 		plus_rgb = false;

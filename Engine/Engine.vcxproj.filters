@@ -16,6 +16,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{8b6c92a8-f65d-451e-80e3-d65773602b92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Media">
+      <UniqueIdentifier>{04042c3a-79d8-47fb-8dfa-a7fcb3ab0554}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChiliWin.h">
@@ -125,5 +128,22 @@
     <Image Include="Chili.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="bigpayout.wav">
+      <Filter>Media</Filter>
+    </Media>
+    <Media Include="rollstop.wav">
+      <Filter>Media</Filter>
+    </Media>
+    <Media Include="roll.wav">
+      <Filter>Media</Filter>
+    </Media>
+    <Media Include="payout.wav">
+      <Filter>Media</Filter>
+    </Media>
+    <Media Include="click.wav">
+      <Filter>Media</Filter>
+    </Media>
   </ItemGroup>
 </Project>
