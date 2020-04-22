@@ -85,7 +85,7 @@ void Slots::Roll2()
 void Slots::DrawUI()
 {
 	const int cx = 550;
-	const int cy = 60;
+	const int cy = 100;
 	DrawCredits(cx, cy);
 	creditcount.Draw(cx + 100, cy, creditsDisplayed, cc, gfx);
 
@@ -220,12 +220,19 @@ void Slots::UpdateCredit()
 				credits += win000 * rollCost;
 			}
 			else
+			{
+				sc2 = Colors::White;
 				credits += win00x * rollCost;
+			}
 		}
 		else
+		{
+			sc1 = Colors::White;
+			sc2 = Colors::White;
 			credits += win0xx * rollCost;
+		}
 	}
-	if (slot1 == 2 && slot2 == 2)
+	else if (slot1 == 2 && slot2 == 2)
 	{
 		sc0 = Colors::Green;
 		sc1 = Colors::Green;
@@ -235,35 +242,39 @@ void Slots::UpdateCredit()
 			credits += win111 * rollCost;
 		}
 		else
+			sc2 = Colors::White;
 			credits += win11x * rollCost;
 	}
-	if (slot1 == 3 && slot2 == 3 && slot3 == 3)
+	else if (slot1 == 3 && slot2 == 3 && slot3 == 3)
 	{
 		sc0 = Colors::Green;
 		sc1 = Colors::Green;
 		sc2 = Colors::Green;
 		credits += win222 * rollCost;
 	}
-	if (slot1 == 4 && slot2 == 4 && slot3 == 4)
+	else if (slot1 == 4 && slot2 == 4 && slot3 == 4)
 	{
 		sc0 = Colors::Green;
 		sc1 = Colors::Green;
 		sc2 = Colors::Green;
 		credits += win333 * rollCost;
 	}
-	if (slot1 == 5 && slot2 == 5 && slot3 == 5)
+	else if (slot1 == 5 && slot2 == 5 && slot3 == 5)
 	{
 		sc0 = Colors::Green;
 		sc1 = Colors::Green;
 		sc2 = Colors::Green;
 		credits += win444 * rollCost;
 	}
-	if (slot1 == 6 && slot2 == 6 && slot3 == 6)
+	else if (slot1 == 6 && slot2 == 6 && slot3 == 6)
 	{
-		sc0 = Colors::Green;
-		sc1 = Colors::Green;
-		sc2 = Colors::Green;
 		credits += win555 * rollCost;
+	}
+	else
+	{
+		sc0 = Colors::White;
+		sc1 = Colors::White;
+		sc2 = Colors::White;
 	}
 }
 
@@ -284,6 +295,13 @@ void Slots::UpdateFrame()
 		sc1 = Colors::Gray;
 		sc2 = Colors::Gray;
 	}
+	else if (slot1 == 6 && slot2 == 6 && slot3 == 6)
+	{
+		sc0 = jpc;
+		sc1 = jpc;
+		sc2 = jpc;
+	}
+	jpc = rng::rdm_color();
 
 	if (rgb >= 250)
 		plus_rgb = false;

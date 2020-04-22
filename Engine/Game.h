@@ -40,6 +40,8 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+    void DrawSoundON(int x, int y);
+    void DrawSoundOFF(int x, int y);
 	/********************************/
 private:
 	MainWindow& wnd;
@@ -63,5 +65,9 @@ private:
     float betadjTimer0 = 0.0f;
     float betadjTimer1 = 0.5f;
     static constexpr float rolltime = 3.0f;
+    static constexpr int soundbX = 750;
+    static constexpr int soundbY = 20;
+    bool isSoundON = true;
+    bool isMouseInhibited = false;
 	/********************************/
 };

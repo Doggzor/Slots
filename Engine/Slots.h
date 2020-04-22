@@ -20,9 +20,10 @@ public:
 	bool isRolling = false;
 private:
 	Color cc = Colors::White;
-	Color sc0 = Colors::Gray;
-	Color sc1 = Colors::Gray;
-	Color sc2 = Colors::Gray;
+	Color sc0 = Colors::White;
+	Color sc1 = Colors::White;
+	Color sc2 = Colors::White;
+	Color jpc = Colors::Green;
 	int rgb = 255;
 	bool plus_rgb = false;
 	static constexpr int width = 450;
