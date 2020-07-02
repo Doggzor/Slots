@@ -69,5 +69,6 @@ private:
     static constexpr int soundbY = 20;
     bool isSoundON = true;
     bool isMouseInhibited = false;
+    //Test comment
 	/********************************/
 };
